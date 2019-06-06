@@ -631,7 +631,7 @@ df.iloc[3]
 
 
 
-You can use a colon to select several columns. Note that you'll use a structure `.iloc[a:b]` where the row with index `a` will be included in the selection and the row with index `b` is excluded.
+You can use a colon to select several rows. Note that you'll use a structure `.iloc[a:b]` where the row with index `a` will be included in the selection and the row with index `b` is excluded.
 
 
 ```python
