@@ -251,7 +251,7 @@ type(df)
 
 
 
-There are some methods and attributes associated with pandas objects (both DataFrames *and* series!) which makes retrieving information from the data particularly easy. Some commonly used methods:
+There are some methods and attributes associated with pandas objects (both DataFrames *and* series!) which make retrieving information from the data particularly easy. Some commonly used methods:
 - `.head()`
 - `.tail()`
 
