@@ -8,7 +8,7 @@ In this lesson we're going to dig into various methods for accessing data from o
 
 You will be able to:
 * Understand and explain some key Pandas methods
-* Access DataFrame data by using the label
+* Access DataFrame data by using labels 
 * Perform boolean indexing on both Series and DataFrames
 * Use simple selectors for series
 * Set new Series and DataFrame inputs
@@ -22,9 +22,9 @@ First, let's make sure we import `pandas` as `pd`.
 import pandas as pd
 ```
 
-To show how to access data with Pandas, let's use the "wine" data set in the scikit-learn library (you might have heard about this library before - you'll use it extensively when we get to machine learning!). Don't worry about the code below, we're essentially just making sure you have access to the wine data set.
+To show how to access data with Pandas, let's use the `wine` dataset in the scikit-learn library (you might have heard about this library before - you'll use it extensively when we get to machine learning!). Don't worry about the code below, we're essentially just making sure you have access to the `wine` dataset.
 
-The data contained in the wine data set are the results of a chemical analysis of wines grown in Italy. It contains the quantities of 13 wine constituents. 
+The data contained in the wine dataset are the results of a chemical analysis of wines grown in Italy. It contains the quantities of 13 wine constituents. 
 
 
 ```python
@@ -233,11 +233,11 @@ print(df)
     [178 rows x 13 columns]
 
 
-Now what if you only want to see only a few lines of the data, based on certain constraints? You'll learn how to access data in this lesson!
+Now what if you want to see only a few lines of the data, based on certain constraints? You'll learn how to access data in this lesson!
 
 ## Methods and attributes to access data information
 
-It won't be a surprise that our `df` object is a pandas DataFrame object. Let's verify this using the `type()`-function
+It won't be a surprise that our `df` object is a pandas DataFrame object. Let's verify this using the `type()` function: 
 
 
 ```python
@@ -261,7 +261,7 @@ And attributes:
 - `.dtypes`
 - `.shape`
 
-### Some methods: `.head()`, `.tail()` and `.info()`
+### Some methods: `.head()`, `.tail()`, and `.info()`
 
 By using `.head()` and `.tail()`, you can select the first $n$ rows from your dataframe. The default $n$ is 5, but you can change this value inside the parentheses. For example:
 
@@ -491,7 +491,7 @@ df.tail(3)
 
 
 
-To get a concise summary of the dataframe you can use `.info()`
+To get a concise summary of the dataframe you can use `.info()`: 
 
 
 ```python
@@ -552,7 +552,7 @@ df.columns
 
 
 
-Using `.dtypes` returns the dtypes in the DataFrame (compare with `.info()!)
+Using `.dtypes` returns the data types of all columns in the DataFrame (compare with `.info()!)
 
 
 ```python
@@ -593,11 +593,11 @@ df.shape
 
 
 
-## Selecting dataframe information
+## Selecting DataFrame information
 
 In the previous section, we deliberately omitted 2 very important attributes:
-- `.iloc`, which is a pandas dataframe indexer used for integer-location based indexing / selection by position.
-- `.loc`, which has 2 use cases:
+- `.iloc`, which is a pandas DataFrame indexer used for integer-location based indexing / selection by position 
+- `.loc`, which has two use cases:
        - Selecting by label / index
        - Selecting with a boolean / conditional lookup
 
@@ -1391,11 +1391,11 @@ df.loc[7:16,"magnesium"]
 
 #### b) boolean indexing using `.loc`
 
-Sometimes you'd like to select certain rows in your data set based on the value for a certain variable. Imagine you'd like to create a new dataframe that only contains the wines with an alcohol percentage below 12. This can be done as follows:
+Sometimes you'd like to select certain rows in your dataset based on the value for a certain variable. Imagine you'd like to create a new DataFrame that only contains the wines with an alcohol percentage below 12. This can be done as follows:
 
 
 ```python
-df.loc[df["alcohol"]<12]
+df.loc[df["alcohol"] < 12]
 ```
 
 
@@ -1745,13 +1745,13 @@ df.loc[df["alcohol"]<12]
 
 
 
-You can verify that simply using `df[df["alcohol"]<12]`, you can obtain the same result!
+You can verify that simply using `df[df["alcohol"] < 12]`, you can obtain the same result!
 
 However, the .`loc` attribute is useful if you'd only want the color intensity for the wines with an alcohol percentage below 12. You can obtain the result as follows:
 
 
 ```python
-df.loc[df["alcohol"]<12, ["color_intensity"]]
+df.loc[df["alcohol"] < 12, ["color_intensity"]]
 ```
 
 
@@ -1883,7 +1883,7 @@ type(col_intensity)
 
 
 
-Note how col_intensity is now a pandas *Series*.
+Note how `col_intensity` is now a pandas *Series*.
 
 Many of the commands discussed before are readily applicable to series:
 
@@ -1904,7 +1904,7 @@ col_intensity[0:3]
 
 
 ```python
-col_intensity[col_intensity > 8] # or col_intensity.loc[col_intensity>8]
+col_intensity[col_intensity > 8] # or col_intensity.loc[col_intensity > 8]
 ```
 
 
@@ -1943,21 +1943,33 @@ Imagine that for some reason, you're not interested in the color intensity value
 
 
 ```python
-df.loc[df["color_intensity"]>10, "color_intensity"] = 10
+df.loc[df["color_intensity"] > 10, "color_intensity"] = 10
 ```
 
 ### Creating new columns
 
-Now imagine that we want to create a new column named "shade" which has a value "light" when the color_intensity is below 7, and "dark" when the intensity is > 7. This can be done as follows:
+Now imagine that we want to create a new column named "shade" which has a value "light" when the `color_intensity` is below 7, and "dark" when the intensity is > 7. This can be done as follows:
 
 
 ```python
-df.loc[df["color_intensity"]>7, "shade"] = "dark"
-df.loc[df["color_intensity"]<=7, "shade"] = "light"
+df.loc[df["color_intensity"] > 7, "shade"] = "dark"
+df.loc[df["color_intensity"] <= 7, "shade"] = "light"
 ```
 
-Have another look at `df`. `shade` is added as a 14th column! 
+If you now look at the output of `df.shape`, you will notice that `df` now has 14 columns. 
+
+
+```python
+df.shape
+```
+
+
+
+
+    (178, 14)
+
+
 
 ## Summary
 
-We've introduced a range of techniques for accessing information in Pandas Series and DataFrames, selecting rows and columns, changing values, and creating new columns! Now, it's time for some practice! Let's start working on a lab where you will get a chance to combine some of these methods!
+We've introduced a range of techniques for accessing information in Pandas Series and DataFrames, selecting rows and columns, changing values, and creating new columns! Now, it's time for some practice! Let's start working on a lab where you will get a chance to practice some of these methods!
