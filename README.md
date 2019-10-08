@@ -2,16 +2,16 @@
 # Accessing Data within Pandas
 
 ## Introduction
-In this lesson we're going to dig into various methods for accessing data from our Pandas Series and DataFrames.
+In this lesson, we're going to dig into various methods for accessing data from our Pandas Series and DataFrames.
 
 ## Objectives
 
 You will be able to:
-* Understand and explain some key Pandas methods
-* Access DataFrame data by using labels 
-* Perform boolean indexing on both Series and DataFrames
-* Use simple selectors for series
-* Set new Series and DataFrame inputs
+- Understand and explain some key Pandas methods
+- Access DataFrame data by using labels 
+- Perform boolean indexing on both Series and DataFrames
+- Use simple selectors for Series
+- Set new Series and DataFrame inputs
 
 ## Importing pandas and the data
 
@@ -22,7 +22,7 @@ First, let's make sure we import `pandas` as `pd`.
 import pandas as pd
 ```
 
-To show how to access data with Pandas, let's use the `wine` dataset in the scikit-learn library (you might have heard about this library before - you'll use it extensively when we get to machine learning!). Don't worry about the code below, we're essentially just making sure you have access to the `wine` dataset.
+To show how to access data with Pandas, let's use the `wine` dataset in the scikit-learn library (you might have heard about this library before - you'll use it extensively when we get to machine learning!). Don't worry about the code below. We're essentially just making sure you have access to the `wine` dataset.
 
 The data contained in the wine dataset are the results of a chemical analysis of wines grown in Italy. It contains the quantities of 13 wine constituents. 
 
@@ -233,11 +233,11 @@ print(df)
     [178 rows x 13 columns]
 
 
-Now what if you want to see only a few lines of the data, based on certain constraints? You'll learn how to access data in this lesson!
+Now, what if you want to see only a few lines of the data, based on certain constraints? You'll learn how to access data in this lesson!
 
 ## Methods and attributes to access data information
 
-It won't be a surprise that our `df` object is a pandas DataFrame object. Let's verify this using the `type()` function: 
+It won't be a surprise that our `df` object is a Pandas DataFrame object. Let's verify this using the `type()` function: 
 
 
 ```python
@@ -251,7 +251,7 @@ type(df)
 
 
 
-There are some methods and attributes associated with pandas objects (both DataFrames *and* series!) which make retrieving information from the data particularly easy. Some commonly used methods:
+There are some methods and attributes associated with Pandas objects (both DataFrames *and* series!) which make retrieving information from the data particularly easy. Some commonly used methods:
 - `.head()`
 - `.tail()`
 
@@ -491,7 +491,7 @@ df.tail(3)
 
 
 
-To get a concise summary of the dataframe you can use `.info()`: 
+To get a concise summary of the dataframe, you can use `.info()`: 
 
 
 ```python
@@ -520,7 +520,7 @@ df.info()
 
 ### Some attributes
 
-Using `.index` you can access the index or row labels of the DataFrame.
+Using `.index`, you can access the index or row labels of the DataFrame.
 
 
 ```python
@@ -552,7 +552,7 @@ df.columns
 
 
 
-Using `.dtypes` returns the data types of all columns in the DataFrame (compare with `.info()!)
+Using `.dtypes` returns the data types of all columns in the DataFrame (compare with `.info()`!)
 
 
 ```python
@@ -596,7 +596,7 @@ df.shape
 ## Selecting DataFrame information
 
 In the previous section, we deliberately omitted 2 very important attributes:
-- `.iloc`, which is a pandas DataFrame indexer used for integer-location based indexing / selection by position 
+- `.iloc`, which is a Pandas DataFrame indexer used for integer-location based indexing / selection by position 
 - `.loc`, which has two use cases:
        - Selecting by label / index
        - Selecting with a boolean / conditional lookup
@@ -1863,7 +1863,7 @@ df.loc[df["alcohol"] < 12, ["color_intensity"]]
 
 ## Selectors for series
 
-Until now we've only really discussed pandas DataFrames. Most of these methods and selectors are also applicable to pandas series. See how you can convert a one-column DataFrame into a Pandas Series:
+Until now we've only really discussed Pandas DataFrames. Most of these methods and selectors are also applicable to Pandas Series. See how you can convert a one-column DataFrame into a Pandas Series:
 
 
 ```python
@@ -1883,7 +1883,7 @@ type(col_intensity)
 
 
 
-Note how `col_intensity` is now a pandas *Series*.
+Note how `col_intensity` is now a Pandas *Series*.
 
 Many of the commands discussed before are readily applicable to series:
 
@@ -1948,7 +1948,7 @@ df.loc[df["color_intensity"] > 10, "color_intensity"] = 10
 
 ### Creating new columns
 
-Now imagine that we want to create a new column named "shade" which has a value "light" when the `color_intensity` is below 7, and "dark" when the intensity is > 7. This can be done as follows:
+Now imagine that we want to create a new column named, "shade" which has a value, "light" when the `color_intensity` is below 7, and, "dark" when the intensity is > 7. This can be done as follows:
 
 
 ```python
