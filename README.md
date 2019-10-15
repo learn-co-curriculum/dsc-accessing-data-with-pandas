@@ -7,11 +7,13 @@ In this lesson, we're going to dig into various methods for accessing data from 
 ## Objectives
 
 You will be able to:
-- Understand and explain some key Pandas methods
-- Access DataFrame data by using labels 
-- Perform boolean indexing on both Series and DataFrames
-- Use simple selectors for Series
-- Set new Series and DataFrame inputs
+
+- Use pandas methods and attributes to access information about a dataset   
+- Index pandas dataframes with .loc, .iloc, and column names   
+- Use a boolean mask to index pandas series and dataframes 
+
+
+
 
 ## Importing pandas and the data
 
@@ -22,7 +24,7 @@ First, let's make sure we import `pandas` as `pd`.
 import pandas as pd
 ```
 
-To show how to access data with Pandas, let's use the `wine` dataset in the scikit-learn library (you might have heard about this library before - you'll use it extensively when we get to machine learning!). Don't worry about the code below. We're essentially just making sure you have access to the `wine` dataset.
+To show how to access data with Pandas, let's use the `wine` dataset in the scikit-learn library. Don't worry about the code below. We're essentially just making sure you have access to the `wine` dataset.
 
 The data contained in the wine dataset are the results of a chemical analysis of wines grown in Italy. It contains the quantities of 13 wine constituents. 
 
@@ -579,7 +581,7 @@ df.dtypes
 
 
 
-`.shape` returns a tuple representing the dimensionality  (in `(rows,columns)` ) of the DataFrame.
+`.shape` returns a tuple representing the dimensionality  (in `(rows, columns)` ) of the DataFrame.
 
 
 ```python
@@ -733,7 +735,7 @@ Next, you can use `,` to perform *column* selections based on their index as wel
 
 
 ```python
-df.iloc[:,3:7]
+df.iloc[:, 3:7]
 ```
 
 
@@ -1202,7 +1204,7 @@ Last but not least, you can perform column and row selections at once:
 
 
 ```python
-df.iloc[5:10,3:9]
+df.iloc[5:10, 3:9]
 ```
 
 
@@ -1294,7 +1296,7 @@ You can `.loc` to select columns based on their (row index and) column name. Exa
 
 
 ```python
-df.loc[:,"magnesium"]
+df.loc[:, 'magnesium']
 ```
 
 
@@ -1365,11 +1367,11 @@ df.loc[:,"magnesium"]
 
 
 
-An alternative method here is simply calling `df["magnesium"]`!
+An alternative method here is simply calling `df['magnesium']`!
 
 
 ```python
-df.loc[7:16,"magnesium"]
+df.loc[7:16, 'magnesium']
 ```
 
 
@@ -1395,7 +1397,7 @@ Sometimes you'd like to select certain rows in your dataset based on the value f
 
 
 ```python
-df.loc[df["alcohol"] < 12]
+df.loc[df['alcohol'] < 12]
 ```
 
 
@@ -1745,13 +1747,13 @@ df.loc[df["alcohol"] < 12]
 
 
 
-You can verify that simply using `df[df["alcohol"] < 12]`, you can obtain the same result!
+You can verify that simply using `df[df['alcohol'] < 12]`, you can obtain the same result!
 
 However, the .`loc` attribute is useful if you'd only want the color intensity for the wines with an alcohol percentage below 12. You can obtain the result as follows:
 
 
 ```python
-df.loc[df["alcohol"] < 12, ["color_intensity"]]
+df.loc[df['alcohol'] < 12, ['color_intensity']]
 ```
 
 
@@ -1867,8 +1869,8 @@ Until now we've only really discussed Pandas DataFrames. Most of these methods a
 
 
 ```python
-# Let's save our color intensity dataframe into an object `col_intensity`
-col_intensity = df["color_intensity"]
+# Let's save our color intensity dataframe into an object col_intensity
+col_intensity = df['color_intensity']
 ```
 
 
@@ -1904,7 +1906,8 @@ col_intensity[0:3]
 
 
 ```python
-col_intensity[col_intensity > 8] # or col_intensity.loc[col_intensity > 8]
+# Or col_intensity.loc[col_intensity > 8]
+col_intensity[col_intensity > 8] 
 ```
 
 
@@ -1943,7 +1946,7 @@ Imagine that for some reason, you're not interested in the color intensity value
 
 
 ```python
-df.loc[df["color_intensity"] > 10, "color_intensity"] = 10
+df.loc[df['color_intensity'] > 10, 'color_intensity'] = 10
 ```
 
 ### Creating new columns
@@ -1952,8 +1955,8 @@ Now imagine that we want to create a new column named, "shade" which has a value
 
 
 ```python
-df.loc[df["color_intensity"] > 7, "shade"] = "dark"
-df.loc[df["color_intensity"] <= 7, "shade"] = "light"
+df.loc[df['color_intensity'] > 7, 'shade'] = 'dark'
+df.loc[df['color_intensity'] <= 7, 'shade'] = 'light'
 ```
 
 If you now look at the output of `df.shape`, you will notice that `df` now has 14 columns. 
