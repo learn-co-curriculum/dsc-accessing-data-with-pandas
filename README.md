@@ -1,4 +1,3 @@
-
 # Accessing Data within Pandas
 
 ## Introduction
@@ -36,7 +35,7 @@ data = load_wine()
 df = pd.DataFrame(data.data, columns=data.feature_names)
 ```
 
-Great! Our data set is now stored in the variable `df`. As you know, you can look at its elements by using `df` or `print(df)`.
+Our data set is now stored in the variable `df`. As you know, you can look at its elements by using `df` or `print(df)`.
 
 
 ```python
@@ -235,7 +234,7 @@ print(df)
     [178 rows x 13 columns]
 
 
-Now, what if you want to see only a few lines of the data, based on certain constraints? You'll learn how to access data in this lesson!
+Now, what if you want to see only a few lines of the data, based on certain constraints? You'll learn how to access data in this lesson.
 
 ## Methods and attributes to access data information
 
@@ -253,7 +252,7 @@ type(df)
 
 
 
-There are some methods and attributes associated with Pandas objects (both DataFrames *and* series!) which make retrieving information from the data particularly easy. Some commonly used methods:
+There are some methods and attributes associated with Pandas objects (both DataFrames *and* series) which make retrieving information from the data particularly easy. Some commonly used methods:
 - `.head()`
 - `.tail()`
 
@@ -554,7 +553,7 @@ df.columns
 
 
 
-Using `.dtypes` returns the data types of all columns in the DataFrame (compare with `.info()`!)
+Using `.dtypes` returns the data types of all columns in the DataFrame (compare with `.info()`)
 
 
 ```python
@@ -597,7 +596,7 @@ df.shape
 
 ## Selecting DataFrame information
 
-In the previous section, we deliberately omitted 2 very important attributes:
+Two very important attributes for Pandas when working with DataFrames are:
 - `.iloc`, which is a Pandas DataFrame indexer used for integer-location based indexing / selection by position 
 - `.loc`, which has two use cases:
        - Selecting by label / index
@@ -1367,7 +1366,7 @@ df.loc[:, 'magnesium']
 
 
 
-An alternative method here is simply calling `df['magnesium']`!
+An alternative method here is simply calling `df['magnesium']`.
 
 
 ```python
@@ -1747,7 +1746,7 @@ df.loc[df['alcohol'] < 12]
 
 
 
-You can verify that simply using `df[df['alcohol'] < 12]`, you can obtain the same result!
+You can verify that simply using `df[df['alcohol'] < 12]`, you can obtain the same result.
 
 However, the .`loc` attribute is useful if you'd only want the color intensity for the wines with an alcohol percentage below 12. You can obtain the result as follows:
 
@@ -1975,4 +1974,4 @@ df.shape
 
 ## Summary
 
-We've introduced a range of techniques for accessing information in Pandas Series and DataFrames, selecting rows and columns, changing values, and creating new columns! Now, it's time for some practice! Let's start working on a lab where you will get a chance to practice some of these methods!
+We've introduced a range of techniques for accessing information in Pandas Series and DataFrames, selecting rows and columns, changing values, and creating new columns.
